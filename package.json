@@ -1,0 +1,20 @@
+{
+  "name": "crowdfunding-product-page-main",
+  "version": "1.0.0",
+  "description": "a crowd funding website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crowd",
+    "funding",
+    "frontendmentor"
+  ],
+  "author": "Sean Redmon",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.0.2",
+    "popper": "^1.0.1"
+  }
+}

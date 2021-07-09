@@ -1,0 +1,114 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  color: black;
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 400;
+  line-height: normal;
+  overflow-x: hidden;
+  background-color: #FAFAFA;
+
+  a {
+      text-decoration: none;
+      color: white;
+  }
+}
+
+section {
+  position: relative;
+  background: white;
+  margin: 0 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.0497193);
+  border-radius: 8px;
+  transform: translateY(-60px);
+  @include font-size(22);
+  text-align: center;
+  z-index: 0;
+
+  // & > * {
+  //   padding: 0 1.5rem;
+  //   // margin-bottom: 1.875rem;
+  //   // margin-top: 1.875rem;
+  // } 
+
+  p {
+    @include font-size(14);
+    line-height: 171%;
+    color: $darkGray;
+    margin: 0;
+  }
+
+  @include respond-above(md) {
+    width: 100%;
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}
+
+  // Flexbox
+.flex {
+    display: flex;
+  
+    &-jc-sb {
+      justify-content: space-between;
+    }
+    
+    &-jc-c {
+      justify-content: center;
+    }
+    
+    &-ai-c {
+      align-items: center;
+    }
+}
+
+//Buttons
+button, .button {
+  display: inline-block;
+  background-color: $moderateCyan;
+  border-radius: 2.09375rem;
+  cursor: pointer;
+  color: white;
+  font-family: 'Commissioner', sans-serif;
+  font-weight: bold;
+  @include font-size(16);
+  @include line-height(20);
+  transition: opacity 300ms ease-in-out;
+
+  &:hover {
+      background-color: $darkCyan;
+  }
+}
+
+.out-of-stock {
+  opacity: 0.5;
+
+  .button {
+    background-color: $darkGray;
+  }
+}
+
+// Visibility
+.hide-for-mobile {
+    @include respond-below(sm){
+      display: none;
+    }
+}
+  
+  .hide-for-desktop {
+    @include respond-above(sm) {
+      display: none;
+    }
+}

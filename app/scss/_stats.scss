@@ -1,0 +1,99 @@
+.stats {
+    position: relative;
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+
+    @include respond-above(sm) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 2fr .1fr;
+        justify-content: left;
+        padding: 0;
+    }
+
+    .stat__box {
+        padding: 1.5rem 0;
+
+        @include respond-above(sm) {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            max-width: 227px;
+            margin-top: 3rem;
+            padding-left: 3rem;
+            &:not(:first-child) {
+                border-left: 1px solid rgba(0, 0, 0, 0.150);
+            }
+        }
+
+        h2 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            
+            @include respond-above(sm) {
+                text-align: center;
+                font-weight: bold;
+                font-size: 32px;
+                line-height: 39px;
+            }
+        }
+
+        .stat {
+            font-weight: bold;
+            @include font-size(32);
+            @include line-height(39);
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .label {
+            padding-top: 9px;
+    
+            @include respond-above(sm) {
+                @include font-size(15);
+                line-height: 18px;
+                text-align: left;
+            }
+        }
+    }
+    
+    // the 2nd box
+    .backers__box {
+        border-top: 1px solid rgba(0, 0, 0, 0.150);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.150);
+
+        @include respond-above(sm) {
+            border-top: none;
+            border-bottom: none;
+        }
+    }
+
+    .progressbar__container {
+        width: 100%;
+
+        @include respond-above(sm) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            margin-top: 2.3125rem;
+            margin-bottom: 3rem;
+            padding: 0 3rem;
+        }
+
+        .stats__progressbar {
+            margin-top: 0;
+            border-radius: 50px;
+            background-color: rgb(244, 244, 244);
+            width: 100%;
+        }
+    
+        .stats__progressbar .fill {
+            border-radius: 50px;
+            width: 80%;
+            height: 12px;
+            background-color: $moderateCyan;
+        }
+    }
+}

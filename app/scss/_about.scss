@@ -1,0 +1,125 @@
+.about {
+    text-align: left;
+    flex-direction: column;
+    margin-top: 1.5rem; // space between the sections
+    padding: 2.5rem 1.5rem;
+
+    @include respond-above(sm) {
+        padding: 3rem 3rem;
+    }
+
+    h2 {
+        margin: 0;
+        margin-bottom: 1.5rem; 
+        @include font-size(18);
+        @include line-height(22);
+
+        @include respond-above(sm) {
+            margin-bottom: 2.1875rem;
+            @include font-size(20);
+            @include line-height(24);
+        }
+    }
+
+    .paragraph {
+        @include font-size(14);
+        @include line-height(24); /* or 171% */
+        padding-bottom: 2.125rem;
+
+        @include respond-above(sm) {
+            @include font-size(16);
+            @include line-height(30); /* or 187% */
+            padding-bottom: 2.5rem;
+        }
+    }
+
+    .about__rewards {
+        text-align: left;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 1.5rem 1.5rem;
+
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        @include respond-above(sm) {
+            padding: 0;
+            padding-top: 2.375rem;
+            padding-right: 2rem;
+            padding-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .about__header {
+            
+            @include respond-above(sm) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            h3 {
+                margin: 0;
+                @include font-size(14);
+                @include line-height(17);
+    
+                @include respond-above(sm) {
+                    @include font-size(18);
+                    @include line-height(22); /* identical to box height */
+                }
+            }
+    
+            .pledge-label {
+                display: inline-block;
+                padding-top: 0.5rem;
+                padding-bottom: 1.5rem;
+                font-weight: 500;
+                @include font-size(14);
+                @include line-height(24);
+                color: $moderateCyan;
+    
+                @include respond-above(sm) {
+                    padding: 0;
+                    padding-bottom: 1.5rem;
+                    @include font-size(15);
+                    @include line-height(18)
+                }
+            }
+        }
+
+        .paragraph {
+            padding-bottom: 1.5rem;
+        }
+
+        .count {
+            padding-right: 0.5rem;
+            padding-bottom: 1.5rem;
+            font-weight: bold;
+            @include font-size(32);
+            @include line-height(39);
+
+            @include respond-above(sm) {
+                padding-bottom: 0;
+            }
+        }
+
+        .left {
+            margin-top: auto;
+            margin-bottom: auto;
+            padding-bottom: 1.5rem;
+            @include font-size(15);
+            @include line-height(18);
+            color: $darkGray;
+
+            @include respond-above(sm) {
+                padding-bottom: 0;
+            }
+        }
+
+        .about__button {
+            padding: 0.9375rem 2rem;
+            @include font-size(14);
+            @include line-height(17);
+        }
+    }
+}
