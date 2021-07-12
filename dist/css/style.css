@@ -28,6 +28,16 @@ body a {
   color: white;
 }
 
+body .dark__overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0000007c;
+  overflow-y: scroll;
+  z-index: 10;
+}
+
 section {
   position: relative;
   background: white;
@@ -100,6 +110,7 @@ button:hover, .button:hover {
 
 .out-of-stock {
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .out-of-stock .button {
@@ -136,7 +147,7 @@ button:hover, .button:hover {
   }
 }
 
-.header .overlay {
+.header .gradiant-overlay {
   opacity: 0;
   position: fixed;
   top: 0px;
@@ -543,7 +554,8 @@ button:hover, .button:hover {
   background-color: #3cb4ac;
 }
 
-.about {
+.about, .popup__window {
+  position: relative;
   text-align: left;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -554,12 +566,12 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about {
+  .about, .popup__window {
     padding: 3rem 3rem;
   }
 }
 
-.about h2 {
+.about h2, .popup__window h2 {
   margin: 0;
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
@@ -567,42 +579,42 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about h2 {
+  .about h2, .popup__window h2 {
     margin-bottom: 2.1875rem;
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
 }
 
-.about .paragraph {
+.about .paragraph, .popup__window .paragraph {
   font-size: 0.875rem;
   line-height: 1.5rem;
   /* or 171% */
-  padding-bottom: 2.125rem;
+  margin-bottom: 2.125rem;
 }
 
 @media (min-width: 576px) {
-  .about .paragraph {
+  .about .paragraph, .popup__window .paragraph {
     font-size: 1rem;
     line-height: 1.875rem;
     /* or 187% */
-    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 }
 
-.about .about__rewards {
+.about .about__rewards, .popup__window .about__rewards {
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   padding: 1.5rem 1.5rem;
 }
 
-.about .about__rewards:not(:last-child) {
+.about .about__rewards:not(:last-child), .popup__window .about__rewards:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards {
+  .about .about__rewards, .popup__window .about__rewards {
     padding: 0;
     padding-top: 2.375rem;
     padding-right: 2rem;
@@ -612,7 +624,7 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header {
+  .about .about__rewards .about__header, .popup__window .about__rewards .about__header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -622,24 +634,23 @@ button:hover, .button:hover {
   }
 }
 
-.about .about__rewards .about__header h3 {
+.about .about__rewards .about__header h3, .popup__window .about__rewards .about__header h3 {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.0625rem;
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header h3 {
+  .about .about__rewards .about__header h3, .popup__window .about__rewards .about__header h3 {
     font-size: 1.125rem;
     line-height: 1.375rem;
     /* identical to box height */
   }
 }
 
-.about .about__rewards .about__header .pledge-label {
+.about .about__rewards .about__header .pledge-label, .popup__window .about__rewards .about__header .pledge-label {
   display: inline-block;
   padding-top: 0.5rem;
-  padding-bottom: 1.5rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.5rem;
@@ -647,7 +658,7 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header .pledge-label {
+  .about .about__rewards .about__header .pledge-label, .popup__window .about__rewards .about__header .pledge-label {
     padding: 0;
     padding-bottom: 1.5rem;
     font-size: 0.9375rem;
@@ -655,11 +666,11 @@ button:hover, .button:hover {
   }
 }
 
-.about .about__rewards .paragraph {
-  padding-bottom: 1.5rem;
+.about .about__rewards .paragraph, .popup__window .about__rewards .paragraph {
+  margin: 1.5rem 0;
 }
 
-.about .about__rewards .count {
+.about .about__rewards .count, .popup__window .about__rewards .count {
   padding-right: 0.5rem;
   padding-bottom: 1.5rem;
   font-weight: bold;
@@ -668,12 +679,12 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .count {
+  .about .about__rewards .count, .popup__window .about__rewards .count {
     padding-bottom: 0;
   }
 }
 
-.about .about__rewards .left {
+.about .about__rewards .left, .popup__window .about__rewards .left {
   margin-top: auto;
   margin-bottom: auto;
   padding-bottom: 1.5rem;
@@ -683,14 +694,203 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .left {
+  .about .about__rewards .left, .popup__window .about__rewards .left {
     padding-bottom: 0;
   }
 }
 
-.about .about__rewards .about__button {
+.about .about__rewards .about__button, .popup__window .about__rewards .about__button {
   padding: 0.9375rem 2rem;
   font-size: 0.875rem;
   line-height: 1.0625rem;
+}
+
+section.popup__window {
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  left: 0;
+  height: 80vh;
+  overflow-y: scroll;
+  z-index: 10;
+  pointer-events: all;
+}
+
+section.popup__window::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+section.popup__window input[type="radio"] {
+  display: none;
+}
+
+section.popup__window .selection .about__header:hover .radioCircle {
+  border-color: #3cb4ac;
+}
+
+section.popup__window .selection .pledge-header {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+section.popup__window .selection .pledge-header:hover {
+  color: #3cb4ac;
+}
+
+section.popup__window .selection.active {
+  border-color: #3cb4ac;
+}
+
+section.popup__window .selection.active .radioCircle {
+  border-color: #3cb4ac;
+}
+
+section.popup__window .selection.active .radioCircle::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+section.popup__window .selection.active .pledge-header {
+  color: #3cb4ac;
+}
+
+section.popup__window .radioCircle {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  margin-right: 1rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease;
+}
+
+section.popup__window .radioCircle::after {
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #3cb4ac;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.25s ease;
+  transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+section.popup__window .pledge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #e6e6e6;
+  text-align: center;
+  height: 0;
+  opacity: 0;
+  -webkit-transition: height, opacity 1 .5s ease;
+  transition: height, opacity 1 .5s ease;
+}
+
+section.popup__window .pledge.active {
+  opacity: 1;
+  height: 123px;
+  -webkit-transition: max-height, opacity 5.5s ease;
+  transition: max-height, opacity 5.5s ease;
+}
+
+@media (min-width: 576px) {
+  section.popup__window .pledge {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: start;
+  }
+  section.popup__window .pledge.active {
+    opacity: 1;
+    max-height: 123px;
+  }
+}
+
+section.popup__window .pledge .enter-your-pledge {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  section.popup__window .pledge .enter-your-pledge {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+  }
+}
+
+section.popup__window .pledge .amount {
+  position: relative;
+  margin-top: 1.5rem;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+}
+
+section.popup__window .pledge .amount div input[type="text"] {
+  max-width: 6.25rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-radius: 2.09375rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-family: Commissioner;
+  font-weight: bold;
+  line-height: 1.0625rem;
+  font-size: 0.875rem;
+  color: black;
+}
+
+section.popup__window .pledge .amount.error div input[type="text"] {
+  border: 1px solid #ff525d;
+}
+
+section.popup__window .pledge .amount div::before {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  content: "$";
+  font-family: Commissioner;
+  font-weight: bold;
+  line-height: 1.0625rem;
+  font-size: 0.875rem;
+  color: black;
+  opacity: 0.25;
+  z-index: 10;
+}
+
+section.popup__window .pledge .amount::after {
+  display: block;
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  content: "Please enter a valid pledge";
+  color: #ff525d;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+section.popup__window .pledge .amount.error::after {
+  opacity: 1;
+}
+
+section.popup__window .pledge .amount .button {
+  margin-left: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

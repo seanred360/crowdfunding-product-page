@@ -1,4 +1,5 @@
-.about {
+.about, .popup__window {
+    position: relative;
     text-align: left;
     flex-direction: column;
     margin-top: 1.5rem; // space between the sections
@@ -24,12 +25,12 @@
     .paragraph {
         @include font-size(14);
         @include line-height(24); /* or 171% */
-        padding-bottom: 2.125rem;
+        margin-bottom: 2.125rem;
 
         @include respond-above(sm) {
             @include font-size(16);
             @include line-height(30); /* or 187% */
-            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
         }
     }
 
@@ -72,7 +73,6 @@
             .pledge-label {
                 display: inline-block;
                 padding-top: 0.5rem;
-                padding-bottom: 1.5rem;
                 font-weight: 500;
                 @include font-size(14);
                 @include line-height(24);
@@ -88,7 +88,7 @@
         }
 
         .paragraph {
-            padding-bottom: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         .count {

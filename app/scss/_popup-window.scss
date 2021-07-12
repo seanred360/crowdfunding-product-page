@@ -1,0 +1,180 @@
+section.popup__window {
+    // default styles are set by the _about.scss because everythign is the same
+    position: fixed;
+    top: 10vh;
+    right: 0;
+    left: 0;
+    height: 80vh;
+    overflow-y: scroll;
+    z-index: 10;
+    pointer-events: all;
+
+    &::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    // .about__header:hover .radioCircle {   
+    //     border-color: hsl(176, 50%, 47%);
+    // }
+
+    .selection {
+
+        .about__header:hover .radioCircle {   
+            border-color: hsl(176, 50%, 47%);
+        }
+
+        .pledge-header {
+            margin-top: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+        }
+
+        .pledge-header:hover {
+            color: hsl(176, 50%, 47%);
+        }
+
+        &.active {
+            border-color: hsl(176, 50%, 47%);
+    
+            & .radioCircle {
+                border-color: hsl(176, 50%, 47%);
+            }
+            & .radioCircle::after {
+                transform: scale(1);
+            }
+    
+            & .pledge-header {
+                color: hsl(176, 50%, 47%);
+            }
+        }
+    }
+
+    .radioCircle {
+        position: relative;
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: 1px solid hsl(0, 0%, 90%);
+        margin-right: 1rem;
+        flex-shrink: 0;
+        transition: border-color 0.25s ease;
+
+        &::after {
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: hsl(176, 50%, 47%);
+            transform: scale(0);
+            transition: transform 0.25s ease;
+        }
+    }
+
+    .pledge {
+        //display: none;
+        display: flex;
+        border-top: 1px solid hsl(0, 0%, 90%);
+        text-align: center;
+        height: 0;
+        opacity: 0;
+        transition: height, opacity 1 .5s ease;
+
+        &.active {
+            //display: block;
+            opacity: 1;
+            height: 123px;
+            transition: max-height, opacity 5.5s ease;
+        }
+
+        @include respond-above(sm) {
+            //grid-template-columns: 1fr auto;
+            align-items: center;
+            justify-items: start;
+
+            &.active {
+                //display: grid;
+                opacity: 1;
+                max-height: 123px;
+            }
+        }
+
+        .enter-your-pledge {
+            margin-top: 1.5rem;
+
+            @include respond-above(sm) {
+                grid-column-start: 1;
+            }
+        }
+
+        .amount {
+            position: relative;
+            margin-top: 1.5rem;
+            grid-column-start: 2;
+
+            div input[type="text"] {
+                max-width: 6.25rem;
+                width: 100%;
+                padding: 1rem 2rem;
+                text-align: center;
+                border-radius: 2.09375rem;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                font-family: Commissioner;
+                font-weight: bold;
+                @include line-height(17);
+                @include font-size(14);
+                color: black;
+            }
+
+            &.error {
+                div input[type="text"] {
+                    border: 1px solid hsl(356, 100%, 66%);
+                }
+            }
+
+            div::before {
+                position: absolute;
+                top: 1rem;
+                left: 1.5rem;
+                content: "$";
+                font-family: Commissioner;
+                font-weight: bold;
+                @include line-height(17);
+                @include font-size(14);
+                color: black;
+                opacity: 0.25;
+                z-index: 10;
+            }
+
+            &::after {
+                display: block;
+                position: absolute;
+                top: 3.5rem;
+                left: 0;
+                content: "Please enter a valid pledge";
+                color: hsl(356, 100%, 66%);
+                font-size: 0.75rem;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.25s ease;
+            }
+
+            &.error::after {
+                opacity: 1;
+            }
+
+            .button {
+                margin-left: 1rem;
+            }
+        }
+    }
+}

@@ -3,8 +3,13 @@ html {
     box-sizing: border-box;
 }
   
-  *, *::before, *::after {
-    box-sizing: inherit;
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  //width: 0;  /* Remove scrollbar space */
+  //background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 body {
@@ -23,6 +28,16 @@ body {
   a {
       text-decoration: none;
       color: white;
+  }
+
+  .dark__overlay {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0000007c;
+    overflow-y: scroll;
+    z-index: 10;
   }
 }
 
@@ -94,6 +109,7 @@ button, .button {
 
 .out-of-stock {
   opacity: 0.5;
+  pointer-events: none;
 
   .button {
     background-color: $darkGray;
