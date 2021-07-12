@@ -11,10 +11,7 @@
 </head>
 <body>
 
-  <div class="dark__overlay"></div>
-
   <header class="header">
-
     <div class="gradiant-overlay has-fade"></div>
 
     <nav class="flex flex-ai-c flex-jc-sb">
@@ -109,10 +106,10 @@
             <span class='count'>101</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" href="#">Select Reward</a>
+          <a class="button about__button hide-for-mobile" id='#bamboo-edition' href="#">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" href="#">Select Reward</a>
+        <a class="button about__button hide-for-desktop" id='#bamboo-edition' href="#">Select Reward</a>
       </div>
   
       <div class="about__rewards">
@@ -130,10 +127,10 @@
             <span class='count'>64</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" href="#">Select Reward</a>
+          <a class="button about__button hide-for-mobile" id='#black-edition' href="#">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" href="#">Select Reward</a>
+        <a class="button about__button hide-for-desktop" id='#black-edition' href="#">Select Reward</a>
       </div>
   
         <div class="about__rewards out-of-stock">
@@ -151,28 +148,31 @@
               <span class='count'>0</span>
               <span class='left'>left</span>
             </div>
-            <a class="button about__button hide-for-mobile" href="#">Select Reward</a>
+            <a class="button about__button hide-for-mobile" id='#mahogany-edition' href="#">Select Reward</a>
           </div>
   
-          <a class="button about__button hide-for-desktop" href="#">Select Reward</a>
+          <a class="button about__button hide-for-desktop" id='#mahogany-edition' href="#">Select Reward</a>
         </div>
       </div>
     </section>
   </main>
 
+<!------------------PLEDGE POPUP WINDOW---------------------------------------------------------------------------------------->
+  <div class="dark__overlay has-fade-2"></div>
 
-
-  <section class="popup__window">
+  <section class="popup__window has-fade-2">
     <h2>Back this project</h2>
     <p class='paragraph'>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
     </p>
 
     <form action="novalidate">
-      <div class="about__rewards selection active">
-        <input type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="about__header flex flex-ai-c">
+
+<!--------------------SELECTION 1--------------------------------------------------------------------->
+      <div class="selection" id='noReward'>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
+        <label for='noReward' class="selection__label flex flex-ai-c">
           <div class="radioCircle"></div>
-          <div class='pledge-header'>
+          <div class='selection__header'>
             <h3>Pledge with no reward</h3>
           </div>
         </label>
@@ -181,22 +181,22 @@
           Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.
         </p>
         
-        <div class="pledge">
+        <div class="pledge has-slide-animation slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount flex flex-jc-sb error">
-            <div class='input-container'>
-              <input type="text" name="pledge" id="option1" placeholder="0.00">
+          <div class="amount__group error">
+            <div class='input__container'>
+              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
+              <a class="button" href="#">Continue</a>
             </div>
-            <a class="button about__button" href="#">Continue</a>
           </div>
         </div>
       </div>
-
-      <div class="about__rewards selection">
-        <input type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="about__header flex flex-ai-c">
+<!--------------------SELECTION 2--------------------------------------------------------------------->
+      <div class="selection" id='bamboo-edition'>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
+        <label for='noReward' class="selection__label flex flex-ai-c">
           <div class="radioCircle"></div>
-          <div class='pledge-header'>
+          <div class='selection__header'>
             <h3>Bamboo Stand</h3>
             <span class='pledge-label'>Pledge $25 or more</span>
           </div>
@@ -206,70 +206,71 @@
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
         
-        <div class="pledge">
+        <div class="pledge has-slide-animation slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount flex flex-jc-sb">
-            <div>
-              <input type="text" name="pledge" id="option1" placeholder="25">
+          <div class="amount__group error">
+            <div class='input__container'>
+              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="25">
+              <a class="button" href="#">Continue</a>
             </div>
-            <a class="button about__button" href="#">Continue</a>
           </div>
         </div>
       </div>
 
-      <div class="about__rewards selection">
-        <input type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="about__header flex flex-ai-c">
+<!--------------------SELECTION 3--------------------------------------------------------------------->
+      <div class="selection" id='black-edition'>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
+        <label for='noReward' class="selection__label flex flex-ai-c">
           <div class="radioCircle"></div>
-          <div class='pledge-header'>
+          <div class='selection__header'>
             <h3>Black Edition Stand</h3>
             <span class='pledge-label'>Pledge $75 or more</span>
           </div>
         </label>
-  
+
         <p class='paragraph'>
-          You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
+          You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
         
-        <div class="pledge">
+        <div class="pledge has-slide-animation slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount flex flex-jc-sb">
-            <div class='input-container'>
-              <input type="text" name="pledge" id="option1" placeholder="75">
+          <div class="amount__group error">
+            <div class='input__container'>
+              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="75">
+              <a class="button" href="#">Continue</a>
             </div>
-            <a class="button about__button" href="#">Continue</a>
           </div>
         </div>
       </div>
-      
-      <div class="about__rewards selection out-of-stock">
-        <input type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="about__header flex flex-ai-c">
+
+<!--------------------SELECTION 4--------------------------------------------------------------------->
+      <div class="selection out-of-stock" id='mahogany-edition'>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
+        <label for='noReward' class="selection__label flex flex-ai-c">
           <div class="radioCircle"></div>
-          <div class='pledge-header'>
+          <div class='selection__header'>
             <h3>Mahogany Special Edition</h3>
             <span class='pledge-label'>Pledge $200 or more</span>
           </div>
         </label>
-  
+
         <p class='paragraph'>
-          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. 
- Shipping is included.
+          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.  Shipping is included.
         </p>
         
-        <div class="pledge">
+        <div class="pledge has-slide-animation slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount flex flex-jc-sb">
-            <div class='input-container'>
-              <input type="text" name="pledge" id="option1" placeholder="200">
+          <div class="amount__group error">
+            <div class='input__container'>
+              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
+              <a class="button" href="#">Continue</a>
             </div>
-            <a class="button about__button" href="#">Continue</a>
           </div>
         </div>
       </div>
     </form>
   </section>
 
-  <script src="/app/script.js"></script>
+  <script src="/app/index.js"></script>
 </body>
 </html>

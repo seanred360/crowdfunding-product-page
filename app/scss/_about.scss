@@ -34,7 +34,7 @@
         }
     }
 
-    .about__rewards {
+    .about__rewards, .selection {
         text-align: left;
         border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 0.5rem;
@@ -52,7 +52,7 @@
             padding-left: 2rem;
         }
 
-        .about__header {
+        .about__header, .selection__label {
             
             @include respond-above(sm) {
                 display: flex;

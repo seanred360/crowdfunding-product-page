@@ -1,40 +1,48 @@
 section.popup__window {
-    // default styles are set by the _about.scss because everythign is the same
+    // I added section to raise the specificity. So it overwrites the default styles
+    // Default styles are set by the _about.scss because everything is very similar
     position: fixed;
     top: 10vh;
     right: 0;
     left: 0;
     height: 80vh;
     overflow-y: scroll;
+    transform: scale(0.95);
+    transition: transform 0.5s ease;
     z-index: 10;
-    pointer-events: all;
+
+    &.active {
+        transform: scale(1);
+    }
 
     &::-webkit-scrollbar {
+        // only works in Chrome
         width: 0;  /* Remove scrollbar space */
         background: transparent;  /* Optional: just make scrollbar invisible */
     }
 
-    input[type="radio"] {
+    .radio-input {
         display: none;
     }
 
-    // .about__header:hover .radioCircle {   
-    //     border-color: hsl(176, 50%, 47%);
-    // }
+    .selection__label:hover .radioCircle {   
+        border-color: hsl(176, 50%, 47%);
+    }
 
     .selection {
+        scroll-margin-top: 1.5rem; // helps scrollIntoView() method position correctly in JS
 
-        .about__header:hover .radioCircle {   
+        .selection__header:hover .radioCircle {   
             border-color: hsl(176, 50%, 47%);
         }
 
-        .pledge-header {
+        .selection__header {
             margin-top: auto;
             margin-right: auto;
             margin-bottom: auto;
         }
 
-        .pledge-header:hover {
+        .selection__header:hover {
             color: hsl(176, 50%, 47%);
         }
 
@@ -48,7 +56,7 @@ section.popup__window {
                 transform: scale(1);
             }
     
-            & .pledge-header {
+            & .selection__header {
                 color: hsl(176, 50%, 47%);
             }
         }
@@ -81,31 +89,17 @@ section.popup__window {
     }
 
     .pledge {
-        //display: none;
-        display: flex;
+        // visibility, max-height and opacity are controlled 
+        // by .slide-in and .slide-out in animations.scss and javascript
         border-top: 1px solid hsl(0, 0%, 90%);
         text-align: center;
-        height: 0;
-        opacity: 0;
-        transition: height, opacity 1 .5s ease;
-
-        &.active {
-            //display: block;
-            opacity: 1;
-            height: 123px;
-            transition: max-height, opacity 5.5s ease;
-        }
+        max-height: 0;
 
         @include respond-above(sm) {
-            //grid-template-columns: 1fr auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
             align-items: center;
             justify-items: start;
-
-            &.active {
-                //display: grid;
-                opacity: 1;
-                max-height: 123px;
-            }
         }
 
         .enter-your-pledge {
@@ -116,14 +110,14 @@ section.popup__window {
             }
         }
 
-        .amount {
+        .amount__group {
+            display: inline-block;
             position: relative;
             margin-top: 1.5rem;
             grid-column-start: 2;
 
-            div input[type="text"] {
+            .pledge-input {
                 max-width: 6.25rem;
-                width: 100%;
                 padding: 1rem 2rem;
                 text-align: center;
                 border-radius: 2.09375rem;
@@ -141,7 +135,7 @@ section.popup__window {
                 }
             }
 
-            div::before {
+            .input__container::before {
                 position: absolute;
                 top: 1rem;
                 left: 1.5rem;
@@ -173,7 +167,13 @@ section.popup__window {
             }
 
             .button {
-                margin-left: 1rem;
+                padding: 1rem 1.5rem;
+                @include font-size(14);
+                @include line-height(17);
+
+                @include respond-above(sm) {
+                    margin-left: 1rem;
+                }
             }
         }
     }

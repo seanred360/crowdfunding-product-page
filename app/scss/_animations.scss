@@ -1,4 +1,12 @@
+/////////// FADE IN OUT ////////////////////////////////////////
+
+/////////// for menu related elements in _header.scss //////////
 .has-fade {
+    visibility: hidden;
+}
+
+/// for .popup__window in _popup-window.scss and .dark__overlay
+.has-fade-2 {
     visibility: hidden;
 }
 
@@ -38,4 +46,54 @@
 
 .fade-out {
     animation: fade-out 200ms ease-in-out forwards;
+}
+
+/////////// SLIDE IN OUT ///////////////////////////////////////////
+////////// for .pledge in _popup-window.scss /////////////////////////////////////////////
+.has-slide-animation {
+    visibility: hidden;
+}
+
+@keyframes slide-out {
+    from {
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+    1% {
+      visibility: visible;
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      max-height: 7.6875rem;
+    }
+}
+
+.slide-out {
+    animation: slide-out 500ms ease-in-out forwards;
+}
+
+@keyframes slide-in {
+    from {
+      visibility: visible;
+      opacity: 1;
+      max-height: 7.6875rem;
+    }
+    99% {
+      visibility: visible;
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+}
+
+.slide-in {
+    animation: slide-in 500ms ease-in-out forwards;
 }
