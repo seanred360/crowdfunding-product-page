@@ -1,4 +1,4 @@
-section.popup__window {
+section.modal__window, .thank__you {
     // I added section to raise the specificity. So it overwrites the default styles
     // Default styles are set by the _about.scss because everything is very similar
     position: fixed;
@@ -10,29 +10,53 @@ section.popup__window {
     transform: scale(0.95);
     transition: transform 0.5s ease;
     z-index: 10;
+    scrollbar-width: none; // hide the scrollbar in Mozilla Firefox
+    -ms-overflow-style: none; // hide the scrollbar in IE and Edge
+
+
+    &::-webkit-scrollbar {
+        // hide the scrollbar in Webkit browsers, such as Chrome, Safari and Opera,
+        display: none;
+    }
 
     &.active {
         transform: scale(1);
     }
+    
+    .close-modal {
+        position: absolute;
+        top: 2.75rem;
+        right: 1.49125rem;
 
-    &::-webkit-scrollbar {
-        // only works in Chrome
-        width: 0;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
+        & path {
+            transition: opacity 0.25s ease;
+        }
+
+        &:hover path {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        @include respond-above(sm) {
+            top: 1.995625rem;
+            right: 1.995625rem;
+        }
     }
 
     .radio-input {
         display: none;
     }
 
-    .selection__label:hover .radioCircle {   
-        border-color: hsl(176, 50%, 47%);
-    }
 
     .selection {
-        scroll-margin-top: 1.5rem; // helps scrollIntoView() method position correctly in JS
+        scroll-margin-top: 1.5rem;
 
-        .selection__header:hover .radioCircle {   
+        .selection__label:hover {
+            color: hsl(176, 50%, 47%);
+            cursor: pointer;
+        }
+
+        .selection__label:hover .radioCircle {   
             border-color: hsl(176, 50%, 47%);
         }
 
@@ -40,24 +64,19 @@ section.popup__window {
             margin-top: auto;
             margin-right: auto;
             margin-bottom: auto;
-        }
-
-        .selection__header:hover {
-            color: hsl(176, 50%, 47%);
+            transition: color 0.25s ease;
         }
 
         &.active {
             border-color: hsl(176, 50%, 47%);
     
-            & .radioCircle {
+            & .selection__label {
+                color: hsl(176, 50%, 47%);
                 border-color: hsl(176, 50%, 47%);
             }
+
             & .radioCircle::after {
                 transform: scale(1);
-            }
-    
-            & .selection__header {
-                color: hsl(176, 50%, 47%);
             }
         }
     }
@@ -166,15 +185,43 @@ section.popup__window {
                 opacity: 1;
             }
 
-            .button {
-                padding: 1rem 1.5rem;
-                @include font-size(14);
-                @include line-height(17);
-
-                @include respond-above(sm) {
-                    margin-left: 1rem;
-                }
-            }
+            
         }
+    }
+
+    // for .thank__you modal popup window
+    .button {
+        padding: 1rem 1.5rem;
+        @include font-size(14);
+        @include line-height(17);
+
+        @include respond-above(sm) {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.thank__you {
+    top: 15vh;
+    max-width: 33.75rem;
+    height: auto;
+    padding-top: 2rem;
+
+    @include respond-above(sm) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .icon-check {
+        margin-bottom: 1.5rem;
+    }
+
+    .paragraph {
+        text-align: center;
+        margin-bottom: 1.96875rem;
+    }
+
+    .button {
+        padding: 1rem 2.0625rem;
     }
 }

@@ -1,15 +1,5 @@
 /////////// FADE IN OUT ////////////////////////////////////////
 
-/////////// for menu related elements in _header.scss //////////
-.has-fade {
-    visibility: hidden;
-}
-
-/// for .popup__window in _popup-window.scss and .dark__overlay
-.has-fade-2 {
-    visibility: hidden;
-}
-
 @keyframes fade-in {
     from {
       visibility: hidden;
@@ -50,9 +40,6 @@
 
 /////////// SLIDE IN OUT ///////////////////////////////////////////
 ////////// for .pledge in _popup-window.scss /////////////////////////////////////////////
-.has-slide-animation {
-    visibility: hidden;
-}
 
 @keyframes slide-out {
     from {

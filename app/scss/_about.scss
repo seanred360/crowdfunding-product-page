@@ -1,9 +1,10 @@
-.about, .popup__window {
+.about, .modal__window, .thank__you {
     position: relative;
     text-align: left;
     flex-direction: column;
     margin-top: 1.5rem; // space between the sections
     padding: 2.5rem 1.5rem;
+    background: white;
 
     @include respond-above(sm) {
         padding: 3rem 3rem;

@@ -9,13 +9,6 @@ html {
           box-sizing: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  /* Remove scrollbar space */
-  background: transparent;
-  /* Optional: just make scrollbar invisible */
-}
-
 body {
   position: relative;
   margin: 0;
@@ -97,6 +90,10 @@ section p {
           align-items: center;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 button, .button {
   display: inline-block;
   background-color: #3cb4ac;
@@ -134,6 +131,10 @@ button:hover, .button:hover {
   .hide-for-desktop {
     display: none;
   }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .header {
@@ -179,13 +180,14 @@ button:hover, .button:hover {
 }
 
 .header__logo {
+  position: relative;
   min-width: 7.9375rem;
   min-height: 1.25rem;
-  z-index: 2;
+  z-index: 10;
 }
 
 .header .btnHamburger {
-  z-index: 2;
+  z-index: 10;
 }
 
 .header .btnHamburger > span {
@@ -230,6 +232,7 @@ button:hover, .button:hover {
 
 .header .container__menu {
   position: relative;
+  visibility: hidden;
   height: 100%;
   width: 100%;
   z-index: 20;
@@ -263,14 +266,6 @@ button:hover, .button:hover {
 
 .header__menu a:not(:last-child) {
   border-bottom: 1px solid #00000010;
-}
-
-.has-fade {
-  visibility: hidden;
-}
-
-.has-fade-2 {
-  visibility: hidden;
 }
 
 @-webkit-keyframes fade-in {
@@ -341,10 +336,6 @@ button:hover, .button:hover {
 .fade-out {
   -webkit-animation: fade-out 200ms ease-in-out forwards;
           animation: fade-out 200ms ease-in-out forwards;
-}
-
-.has-slide-animation {
-  visibility: hidden;
 }
 
 @-webkit-keyframes slide-out {
@@ -651,7 +642,7 @@ button:hover, .button:hover {
   background-color: #3cb4ac;
 }
 
-.about, .popup__window {
+.about, .modal__window, .thank__you {
   position: relative;
   text-align: left;
   -webkit-box-orient: vertical;
@@ -660,15 +651,16 @@ button:hover, .button:hover {
           flex-direction: column;
   margin-top: 1.5rem;
   padding: 2.5rem 1.5rem;
+  background: white;
 }
 
 @media (min-width: 576px) {
-  .about, .popup__window {
+  .about, .modal__window, .thank__you {
     padding: 3rem 3rem;
   }
 }
 
-.about h2, .popup__window h2 {
+.about h2, .modal__window h2, .thank__you h2 {
   margin: 0;
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
@@ -676,14 +668,14 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about h2, .popup__window h2 {
+  .about h2, .modal__window h2, .thank__you h2 {
     margin-bottom: 2.1875rem;
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
 }
 
-.about .paragraph, .popup__window .paragraph {
+.about .paragraph, .modal__window .paragraph, .thank__you .paragraph {
   font-size: 0.875rem;
   line-height: 1.5rem;
   /* or 171% */
@@ -691,7 +683,7 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .paragraph, .popup__window .paragraph {
+  .about .paragraph, .modal__window .paragraph, .thank__you .paragraph {
     font-size: 1rem;
     line-height: 1.875rem;
     /* or 187% */
@@ -699,19 +691,19 @@ button:hover, .button:hover {
   }
 }
 
-.about .about__rewards, .about .selection, .popup__window .about__rewards, .popup__window .selection {
+.about .about__rewards, .about .selection, .modal__window .about__rewards, .modal__window .selection, .thank__you .about__rewards, .thank__you .selection {
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   padding: 1.5rem 1.5rem;
 }
 
-.about .about__rewards:not(:last-child), .about .selection:not(:last-child), .popup__window .about__rewards:not(:last-child), .popup__window .selection:not(:last-child) {
+.about .about__rewards:not(:last-child), .about .selection:not(:last-child), .modal__window .about__rewards:not(:last-child), .modal__window .selection:not(:last-child), .thank__you .about__rewards:not(:last-child), .thank__you .selection:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards, .about .selection, .popup__window .about__rewards, .popup__window .selection {
+  .about .about__rewards, .about .selection, .modal__window .about__rewards, .modal__window .selection, .thank__you .about__rewards, .thank__you .selection {
     padding: 0;
     padding-top: 2.375rem;
     padding-right: 2rem;
@@ -721,7 +713,7 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header, .about .about__rewards .selection__label, .about .selection .about__header, .about .selection .selection__label, .popup__window .about__rewards .about__header, .popup__window .about__rewards .selection__label, .popup__window .selection .about__header, .popup__window .selection .selection__label {
+  .about .about__rewards .about__header, .about .about__rewards .selection__label, .about .selection .about__header, .about .selection .selection__label, .modal__window .about__rewards .about__header, .modal__window .about__rewards .selection__label, .modal__window .selection .about__header, .modal__window .selection .selection__label, .thank__you .about__rewards .about__header, .thank__you .about__rewards .selection__label, .thank__you .selection .about__header, .thank__you .selection .selection__label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -731,21 +723,21 @@ button:hover, .button:hover {
   }
 }
 
-.about .about__rewards .about__header h3, .about .about__rewards .selection__label h3, .about .selection .about__header h3, .about .selection .selection__label h3, .popup__window .about__rewards .about__header h3, .popup__window .about__rewards .selection__label h3, .popup__window .selection .about__header h3, .popup__window .selection .selection__label h3 {
+.about .about__rewards .about__header h3, .about .about__rewards .selection__label h3, .about .selection .about__header h3, .about .selection .selection__label h3, .modal__window .about__rewards .about__header h3, .modal__window .about__rewards .selection__label h3, .modal__window .selection .about__header h3, .modal__window .selection .selection__label h3, .thank__you .about__rewards .about__header h3, .thank__you .about__rewards .selection__label h3, .thank__you .selection .about__header h3, .thank__you .selection .selection__label h3 {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.0625rem;
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header h3, .about .about__rewards .selection__label h3, .about .selection .about__header h3, .about .selection .selection__label h3, .popup__window .about__rewards .about__header h3, .popup__window .about__rewards .selection__label h3, .popup__window .selection .about__header h3, .popup__window .selection .selection__label h3 {
+  .about .about__rewards .about__header h3, .about .about__rewards .selection__label h3, .about .selection .about__header h3, .about .selection .selection__label h3, .modal__window .about__rewards .about__header h3, .modal__window .about__rewards .selection__label h3, .modal__window .selection .about__header h3, .modal__window .selection .selection__label h3, .thank__you .about__rewards .about__header h3, .thank__you .about__rewards .selection__label h3, .thank__you .selection .about__header h3, .thank__you .selection .selection__label h3 {
     font-size: 1.125rem;
     line-height: 1.375rem;
     /* identical to box height */
   }
 }
 
-.about .about__rewards .about__header .pledge-label, .about .about__rewards .selection__label .pledge-label, .about .selection .about__header .pledge-label, .about .selection .selection__label .pledge-label, .popup__window .about__rewards .about__header .pledge-label, .popup__window .about__rewards .selection__label .pledge-label, .popup__window .selection .about__header .pledge-label, .popup__window .selection .selection__label .pledge-label {
+.about .about__rewards .about__header .pledge-label, .about .about__rewards .selection__label .pledge-label, .about .selection .about__header .pledge-label, .about .selection .selection__label .pledge-label, .modal__window .about__rewards .about__header .pledge-label, .modal__window .about__rewards .selection__label .pledge-label, .modal__window .selection .about__header .pledge-label, .modal__window .selection .selection__label .pledge-label, .thank__you .about__rewards .about__header .pledge-label, .thank__you .about__rewards .selection__label .pledge-label, .thank__you .selection .about__header .pledge-label, .thank__you .selection .selection__label .pledge-label {
   display: inline-block;
   padding-top: 0.5rem;
   font-weight: 500;
@@ -755,7 +747,7 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .about__header .pledge-label, .about .about__rewards .selection__label .pledge-label, .about .selection .about__header .pledge-label, .about .selection .selection__label .pledge-label, .popup__window .about__rewards .about__header .pledge-label, .popup__window .about__rewards .selection__label .pledge-label, .popup__window .selection .about__header .pledge-label, .popup__window .selection .selection__label .pledge-label {
+  .about .about__rewards .about__header .pledge-label, .about .about__rewards .selection__label .pledge-label, .about .selection .about__header .pledge-label, .about .selection .selection__label .pledge-label, .modal__window .about__rewards .about__header .pledge-label, .modal__window .about__rewards .selection__label .pledge-label, .modal__window .selection .about__header .pledge-label, .modal__window .selection .selection__label .pledge-label, .thank__you .about__rewards .about__header .pledge-label, .thank__you .about__rewards .selection__label .pledge-label, .thank__you .selection .about__header .pledge-label, .thank__you .selection .selection__label .pledge-label {
     padding: 0;
     padding-bottom: 1.5rem;
     font-size: 0.9375rem;
@@ -763,11 +755,11 @@ button:hover, .button:hover {
   }
 }
 
-.about .about__rewards .paragraph, .about .selection .paragraph, .popup__window .about__rewards .paragraph, .popup__window .selection .paragraph {
+.about .about__rewards .paragraph, .about .selection .paragraph, .modal__window .about__rewards .paragraph, .modal__window .selection .paragraph, .thank__you .about__rewards .paragraph, .thank__you .selection .paragraph {
   margin: 1.5rem 0;
 }
 
-.about .about__rewards .count, .about .selection .count, .popup__window .about__rewards .count, .popup__window .selection .count {
+.about .about__rewards .count, .about .selection .count, .modal__window .about__rewards .count, .modal__window .selection .count, .thank__you .about__rewards .count, .thank__you .selection .count {
   padding-right: 0.5rem;
   padding-bottom: 1.5rem;
   font-weight: bold;
@@ -776,12 +768,12 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .count, .about .selection .count, .popup__window .about__rewards .count, .popup__window .selection .count {
+  .about .about__rewards .count, .about .selection .count, .modal__window .about__rewards .count, .modal__window .selection .count, .thank__you .about__rewards .count, .thank__you .selection .count {
     padding-bottom: 0;
   }
 }
 
-.about .about__rewards .left, .about .selection .left, .popup__window .about__rewards .left, .popup__window .selection .left {
+.about .about__rewards .left, .about .selection .left, .modal__window .about__rewards .left, .modal__window .selection .left, .thank__you .about__rewards .left, .thank__you .selection .left {
   margin-top: auto;
   margin-bottom: auto;
   padding-bottom: 1.5rem;
@@ -791,18 +783,18 @@ button:hover, .button:hover {
 }
 
 @media (min-width: 576px) {
-  .about .about__rewards .left, .about .selection .left, .popup__window .about__rewards .left, .popup__window .selection .left {
+  .about .about__rewards .left, .about .selection .left, .modal__window .about__rewards .left, .modal__window .selection .left, .thank__you .about__rewards .left, .thank__you .selection .left {
     padding-bottom: 0;
   }
 }
 
-.about .about__rewards .about__button, .about .selection .about__button, .popup__window .about__rewards .about__button, .popup__window .selection .about__button {
+.about .about__rewards .about__button, .about .selection .about__button, .modal__window .about__rewards .about__button, .modal__window .selection .about__button, .thank__you .about__rewards .about__button, .thank__you .selection .about__button {
   padding: 0.9375rem 2rem;
   font-size: 0.875rem;
   line-height: 1.0625rem;
 }
 
-section.popup__window {
+section.modal__window, .thank__you {
   position: fixed;
   top: 10vh;
   right: 0;
@@ -816,64 +808,82 @@ section.popup__window {
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
   z-index: 10;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-section.popup__window.active {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-section.popup__window::-webkit-scrollbar {
-  width: 0;
-  /* Remove scrollbar space */
-  background: transparent;
-  /* Optional: just make scrollbar invisible */
-}
-
-section.popup__window .radio-input {
+section.modal__window::-webkit-scrollbar, .thank__you::-webkit-scrollbar {
   display: none;
 }
 
-section.popup__window .selection__label:hover .radioCircle {
-  border-color: #3cb4ac;
-}
-
-section.popup__window .selection {
-  scroll-margin-top: 1.5rem;
-}
-
-section.popup__window .selection .selection__header:hover .radioCircle {
-  border-color: #3cb4ac;
-}
-
-section.popup__window .selection .selection__header {
-  margin-top: auto;
-  margin-right: auto;
-  margin-bottom: auto;
-}
-
-section.popup__window .selection .selection__header:hover {
-  color: #3cb4ac;
-}
-
-section.popup__window .selection.active {
-  border-color: #3cb4ac;
-}
-
-section.popup__window .selection.active .radioCircle {
-  border-color: #3cb4ac;
-}
-
-section.popup__window .selection.active .radioCircle::after {
+section.modal__window.active, .thank__you.active {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-section.popup__window .selection.active .selection__header {
-  color: #3cb4ac;
+section.modal__window .close-modal, .thank__you .close-modal {
+  position: absolute;
+  top: 2.75rem;
+  right: 1.49125rem;
 }
 
-section.popup__window .radioCircle {
+section.modal__window .close-modal path, .thank__you .close-modal path {
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+section.modal__window .close-modal:hover path, .thank__you .close-modal:hover path {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  section.modal__window .close-modal, .thank__you .close-modal {
+    top: 1.995625rem;
+    right: 1.995625rem;
+  }
+}
+
+section.modal__window .radio-input, .thank__you .radio-input {
+  display: none;
+}
+
+section.modal__window .selection, .thank__you .selection {
+  scroll-margin-top: 1.5rem;
+}
+
+section.modal__window .selection .selection__label:hover, .thank__you .selection .selection__label:hover {
+  color: #3cb4ac;
+  cursor: pointer;
+}
+
+section.modal__window .selection .selection__label:hover .radioCircle, .thank__you .selection .selection__label:hover .radioCircle {
+  border-color: #3cb4ac;
+}
+
+section.modal__window .selection .selection__header, .thank__you .selection .selection__header {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+}
+
+section.modal__window .selection.active, .thank__you .selection.active {
+  border-color: #3cb4ac;
+}
+
+section.modal__window .selection.active .selection__label, .thank__you .selection.active .selection__label {
+  color: #3cb4ac;
+  border-color: #3cb4ac;
+}
+
+section.modal__window .selection.active .radioCircle::after, .thank__you .selection.active .radioCircle::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+section.modal__window .radioCircle, .thank__you .radioCircle {
   position: relative;
   display: block;
   width: 1.5rem;
@@ -887,7 +897,7 @@ section.popup__window .radioCircle {
   transition: border-color 0.25s ease;
 }
 
-section.popup__window .radioCircle::after {
+section.modal__window .radioCircle::after, .thank__you .radioCircle::after {
   display: block;
   position: absolute;
   top: 3px;
@@ -905,14 +915,14 @@ section.popup__window .radioCircle::after {
   transition: transform 0.25s ease, -webkit-transform 0.25s ease;
 }
 
-section.popup__window .pledge {
+section.modal__window .pledge, .thank__you .pledge {
   border-top: 1px solid #e6e6e6;
   text-align: center;
   max-height: 0;
 }
 
 @media (min-width: 576px) {
-  section.popup__window .pledge {
+  section.modal__window .pledge, .thank__you .pledge {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr auto;
@@ -924,18 +934,18 @@ section.popup__window .pledge {
   }
 }
 
-section.popup__window .pledge .enter-your-pledge {
+section.modal__window .pledge .enter-your-pledge, .thank__you .pledge .enter-your-pledge {
   margin-top: 1.5rem;
 }
 
 @media (min-width: 576px) {
-  section.popup__window .pledge .enter-your-pledge {
+  section.modal__window .pledge .enter-your-pledge, .thank__you .pledge .enter-your-pledge {
     -ms-grid-column: 1;
         grid-column-start: 1;
   }
 }
 
-section.popup__window .pledge .amount__group {
+section.modal__window .pledge .amount__group, .thank__you .pledge .amount__group {
   display: inline-block;
   position: relative;
   margin-top: 1.5rem;
@@ -943,7 +953,7 @@ section.popup__window .pledge .amount__group {
       grid-column-start: 2;
 }
 
-section.popup__window .pledge .amount__group .pledge-input {
+section.modal__window .pledge .amount__group .pledge-input, .thank__you .pledge .amount__group .pledge-input {
   max-width: 6.25rem;
   padding: 1rem 2rem;
   text-align: center;
@@ -956,11 +966,11 @@ section.popup__window .pledge .amount__group .pledge-input {
   color: black;
 }
 
-section.popup__window .pledge .amount__group.error div input[type="text"] {
+section.modal__window .pledge .amount__group.error div input[type="text"], .thank__you .pledge .amount__group.error div input[type="text"] {
   border: 1px solid #ff525d;
 }
 
-section.popup__window .pledge .amount__group .input__container::before {
+section.modal__window .pledge .amount__group .input__container::before, .thank__you .pledge .amount__group .input__container::before {
   position: absolute;
   top: 1rem;
   left: 1.5rem;
@@ -974,7 +984,7 @@ section.popup__window .pledge .amount__group .input__container::before {
   z-index: 10;
 }
 
-section.popup__window .pledge .amount__group::after {
+section.modal__window .pledge .amount__group::after, .thank__you .pledge .amount__group::after {
   display: block;
   position: absolute;
   top: 3.5rem;
@@ -988,19 +998,46 @@ section.popup__window .pledge .amount__group::after {
   transition: opacity 0.25s ease;
 }
 
-section.popup__window .pledge .amount__group.error::after {
+section.modal__window .pledge .amount__group.error::after, .thank__you .pledge .amount__group.error::after {
   opacity: 1;
 }
 
-section.popup__window .pledge .amount__group .button {
+section.modal__window .button, .thank__you .button {
   padding: 1rem 1.5rem;
   font-size: 0.875rem;
   line-height: 1.0625rem;
 }
 
 @media (min-width: 576px) {
-  section.popup__window .pledge .amount__group .button {
+  section.modal__window .button, .thank__you .button {
     margin-left: 1rem;
   }
+}
+
+.thank__you {
+  top: 15vh;
+  max-width: 33.75rem;
+  height: auto;
+  padding-top: 2rem;
+}
+
+@media (min-width: 576px) {
+  .thank__you {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.thank__you .icon-check {
+  margin-bottom: 1.5rem;
+}
+
+.thank__you .paragraph {
+  text-align: center;
+  margin-bottom: 1.96875rem;
+}
+
+.thank__you .button {
+  padding: 1rem 2.0625rem;
 }
 /*# sourceMappingURL=style.css.map */

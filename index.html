@@ -12,27 +12,29 @@
 <body>
 
   <header class="header">
-    <div class="gradiant-overlay has-fade"></div>
+    <div class="gradiant-overlay hidden"></div>
 
-    <nav class="flex flex-ai-c flex-jc-sb">
+    <nav class="nav flex flex-ai-c flex-jc-sb">
       <img class='header__logo' src="/images/logo.svg" alt="crowdfund">
 
-      <a class="btnHamburger hide-for-desktop" href='#'>
+      <!-- javascript:void(0); is better than # because the link will not jump you to the top 
+        of the page and create a blank entry in your history. It also keeps the keyboard functionality for accessibility. -->
+      <a class="btnHamburger hide-for-desktop" href='javascript:void(0);'>
         <span></span>
         <span></span>
         <span></span>
       </a>
 
-      <div class="header__links hide-for-mobile">
-        <a class='link' href="#">About</a><a class='link' href="#">Discover</a><a class='link' href="#">Get Started</a>
+      <div class="header__links fade-in hide-for-mobile">
+        <a class='link' href="/about.html" target='_blank'>About</a><a class='link' href="/discover.html" target='_blank'>Discover</a><a class='link' href="/get-started.html" target='_blank'>Get Started</a>
       </div>
     </nav>
 
-    <div class="container__menu has-fade hide-for-desktop">
+    <div class="container__menu hide-for-desktop">
       <div class="header__menu">
-        <a class='link' href="#">About</a>
-        <a class='link' href="#">Discover</a>
-        <a class='link' href="#">Get Started</a>
+        <a class='link' href="/about.html" target='_blank'>About</a>
+        <a class='link' href="/discover.html" target='_blank'>Discover</a>
+        <a class='link' href="/get-started.html" target='_blank'>Get Started</a>
       </div>
     </div>
   </header>
@@ -47,8 +49,8 @@
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
   
         <div class="product__buttons flex flex-ai-c flex-jc-sb">
-          <a href="#" class="button product-button">Back this project</a>
-          <a href="#" class="product__bookmark flex">
+          <a href="javascript:void(0);" class="button product-button">Back this project</a>
+          <a href="javascript:void(0);" class="product__bookmark flex">
             <img class='bookmark-icon ' src="images/icon-bookmark.svg" alt="Bookmark">
             <span class='bookmark hide-for-mobile'>Bookmark</span>
           </a>
@@ -106,10 +108,10 @@
             <span class='count'>101</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" id='#bamboo-edition' href="#">Select Reward</a>
+          <a class="button about__button hide-for-mobile" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" id='#bamboo-edition' href="#">Select Reward</a>
+        <a class="button about__button hide-for-desktop" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
       </div>
   
       <div class="about__rewards">
@@ -127,10 +129,10 @@
             <span class='count'>64</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" id='#black-edition' href="#">Select Reward</a>
+          <a class="button about__button hide-for-mobile" id='#black-edition' href="javascript:void(0);">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" id='#black-edition' href="#">Select Reward</a>
+        <a class="button about__button hide-for-desktop" id='#black-edition' href="javascript:void(0);">Select Reward</a>
       </div>
   
         <div class="about__rewards out-of-stock">
@@ -148,19 +150,26 @@
               <span class='count'>0</span>
               <span class='left'>left</span>
             </div>
-            <a class="button about__button hide-for-mobile" id='#mahogany-edition' href="#">Select Reward</a>
+            <a class="button about__button hide-for-mobile" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
           </div>
   
-          <a class="button about__button hide-for-desktop" id='#mahogany-edition' href="#">Select Reward</a>
+          <a class="button about__button hide-for-desktop" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
         </div>
       </div>
     </section>
   </main>
 
 <!------------------PLEDGE POPUP WINDOW---------------------------------------------------------------------------------------->
-  <div class="dark__overlay has-fade-2"></div>
+  <div class="dark__overlay hidden"></div>
+  <section class="thank__you hidden flex flex-jc-c flex-ai-c">
+    <img class='icon-check' src="/images/icon-check.svg" alt="Check mark">
+    <h2>Thanks for your support!</h2>
+    <p class='paragraph'>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</p>
+    <a class="button got-it" href="javascript:void(0);">Got it!</a>
+  </section>
 
-  <section class="popup__window has-fade-2">
+  <section class="modal__window hidden">
+    <svg width="15" height="15" class='close-modal' xmlns="http://www.w3.org/2000/svg"><path d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z" fill="#000" fill-rule="evenodd" opacity=".4"/></svg>
     <h2>Back this project</h2>
     <p class='paragraph'>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
     </p>
@@ -181,12 +190,12 @@
           Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.
         </p>
         
-        <div class="pledge has-slide-animation slide-in">
+        <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
           <div class="amount__group error">
             <div class='input__container'>
               <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
-              <a class="button" href="#">Continue</a>
+              <a class="button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -206,12 +215,12 @@
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
         
-        <div class="pledge has-slide-animation slide-in">
+        <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
           <div class="amount__group error">
             <div class='input__container'>
               <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="25">
-              <a class="button" href="#">Continue</a>
+              <a class="button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -232,12 +241,12 @@
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
         
-        <div class="pledge has-slide-animation slide-in">
+        <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
           <div class="amount__group error">
             <div class='input__container'>
               <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="75">
-              <a class="button" href="#">Continue</a>
+              <a class="button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -258,12 +267,12 @@
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.  Shipping is included.
         </p>
         
-        <div class="pledge has-slide-animation slide-in">
+        <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
           <div class="amount__group error">
             <div class='input__container'>
               <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
-              <a class="button" href="#">Continue</a>
+              <a class="button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>

@@ -7,11 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-
 body {
   position: relative;
   margin: 0;
@@ -89,6 +84,10 @@ section {
     }
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 //Buttons
 button, .button {
   display: inline-block;
@@ -127,4 +126,8 @@ button, .button {
     @include respond-above(sm) {
       display: none;
     }
+}
+
+.hidden {
+  visibility: hidden;
 }

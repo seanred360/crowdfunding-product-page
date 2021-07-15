@@ -21,7 +21,7 @@
         background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
         mix-blend-mode: normal;
         opacity: 0.6;
-        z-index: 1;
+        z-index: 1; // the opacity is animated which creates a new stacking context and sets the z-index to 0 everytime it animates.
     }
 
     nav {
@@ -33,13 +33,14 @@
     }
 
     &__logo {
+        position: relative;
         min-width: 7.9375rem;
         min-height: 1.25rem;
-        z-index: 2;
+        z-index: 10;
     }
 
     .btnHamburger {
-        z-index: 2;
+        z-index: 10;
         
         > span {
             display: block;
@@ -85,6 +86,7 @@
 
     .container__menu {
         position: relative;
+        visibility: hidden; // animated on button press in _animations.scss
         height: 100%;
         width: 100%;
         z-index: 20;
