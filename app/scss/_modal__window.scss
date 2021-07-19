@@ -206,6 +206,11 @@ section.modal__window, .thank__you {
     max-width: 33.75rem;
     height: auto;
     padding-top: 2rem;
+    visibility: hidden;
+
+    &.active {
+        visibility: visible;
+    }
 
     @include respond-above(sm) {
         margin-left: auto;

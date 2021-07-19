@@ -47,12 +47,6 @@ section {
   text-align: center;
   z-index: 0;
 
-  // & > * {
-  //   padding: 0 1.5rem;
-  //   // margin-bottom: 1.875rem;
-  //   // margin-top: 1.875rem;
-  // } 
-
   p {
     @include font-size(14);
     line-height: 171%;

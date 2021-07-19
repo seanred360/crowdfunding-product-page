@@ -52,18 +52,42 @@
     }
 
     .product__buttons {
-        .product-button {
+        .select-button {
             padding: 1.125rem 2.5rem;
         }
     
         .product__bookmark {
             max-width: 10.875rem;
 
+            .bookmark-icon circle,
+            .bookmark-icon path,
+            .bookmark-label {
+                transition: all 0.5s ease;
+            }
+
+
+            &.active {
+                .bookmark-icon circle {
+                    fill: $darkCyan;
+                }
+                .bookmark-icon path {
+                    fill: white;
+                }
+                .bookmark-label {
+                    color: $darkCyan;
+                    max-width: 11.875rem;
+                }
+            }
+
             .bookmark-icon {
+                width: 56px; 
+                height: 56px;
+                position: relative;
                 z-index: 1;
             }
 
-            .bookmark {
+            .bookmark-label {
+                max-width: 10.8125rem;
                 padding-top: 1.125rem;
                 padding-right: 1.5rem;
                 padding-bottom: 1.125rem;

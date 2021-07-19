@@ -35,6 +35,7 @@
 }
 
 .fade-out {
+    pointer-events: none;
     animation: fade-out 200ms ease-in-out forwards;
 }
 

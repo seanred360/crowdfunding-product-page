@@ -27,7 +27,7 @@
             }
         }
 
-        h2 {
+        h2, h2 span {
             margin-block-start: 0;
             margin-block-end: 0;
             
@@ -91,6 +91,7 @@
     
         .stats__progressbar .fill {
             border-radius: 50px;
+            max-width: 100%;
             width: 80%;
             height: 12px;
             background-color: $moderateCyan;

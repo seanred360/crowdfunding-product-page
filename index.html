@@ -49,19 +49,22 @@
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
   
         <div class="product__buttons flex flex-ai-c flex-jc-sb">
-          <a href="javascript:void(0);" class="button product-button">Back this project</a>
+          <a href="javascript:void(0);" class="button select-button">Back this project</a>
           <a href="javascript:void(0);" class="product__bookmark flex">
-            <img class='bookmark-icon ' src="images/icon-bookmark.svg" alt="Bookmark">
-            <span class='bookmark hide-for-mobile'>Bookmark</span>
+            <div>
+              <svg class='bookmark-icon' width="56" height="56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#2F2F2F" cx="28" cy="28" r="28"/><path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/></g></svg>
+            </div>
+            <span class='bookmark-label hide-for-mobile'>Bookmark</span>
           </a>
         </div>
       </div>
     </section>
+
   
     <section class="stats flex flex-ai-c flex-jc-c">
       <div class="stat__box">
-        <h2 class="stat stats_money">$89,914</h1>
-        <p class="label stats_goal">of $100,000 backed</p>
+        <h2 class='flex'>$<span class="stat stats__money">89,914</span></h1>
+        <p class="label stats__goal">of $100,000 backed</p>
       </div>
   
       <div class="stat__box backers__box">
@@ -105,13 +108,13 @@
   
         <div class='about__footer flex flex-ai-c flex-jc-sb'>
           <div class='flex flex-ai-c'>
-            <span class='count'>101</span>
+            <span class='stock bamboo-stock'>101</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
+          <a class="button select-button hide-for-mobile" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
+        <a class="button select-button hide-for-desktop" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
       </div>
   
       <div class="about__rewards">
@@ -126,13 +129,13 @@
   
         <div class='about__footer flex flex-ai-c flex-jc-sb'>
           <div class='flex'>
-            <span class='count'>64</span>
+            <span class='stock black-stock'>64</span>
             <span class='left'>left</span>
           </div>
-          <a class="button about__button hide-for-mobile" id='#black-edition' href="javascript:void(0);">Select Reward</a>
+          <a class="button select-button hide-for-mobile" id='#black-edition' href="javascript:void(0);">Select Reward</a>
         </div>
   
-        <a class="button about__button hide-for-desktop" id='#black-edition' href="javascript:void(0);">Select Reward</a>
+        <a class="button select-button hide-for-desktop" id='#black-edition' href="javascript:void(0);">Select Reward</a>
       </div>
   
         <div class="about__rewards out-of-stock">
@@ -147,28 +150,28 @@
   
           <div class='about__footer flex flex-ai-c flex-jc-sb'>
             <div class='flex'>
-              <span class='count'>0</span>
+              <span class='stock mahogany-stock'>0</span>
               <span class='left'>left</span>
             </div>
-            <a class="button about__button hide-for-mobile" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
+            <a class="button select-button hide-for-mobile" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
           </div>
   
-          <a class="button about__button hide-for-desktop" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
+          <a class="button select-button hide-for-desktop" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
         </div>
       </div>
     </section>
   </main>
 
 <!------------------PLEDGE POPUP WINDOW---------------------------------------------------------------------------------------->
-  <div class="dark__overlay hidden"></div>
-  <section class="thank__you hidden flex flex-jc-c flex-ai-c">
+  <div class="dark__overlay fade-out"></div>
+  <section class="thank__you flex flex-jc-c flex-ai-c">
     <img class='icon-check' src="/images/icon-check.svg" alt="Check mark">
     <h2>Thanks for your support!</h2>
     <p class='paragraph'>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</p>
     <a class="button got-it" href="javascript:void(0);">Got it!</a>
   </section>
 
-  <section class="modal__window hidden">
+  <section class="modal__window fade-out">
     <svg width="15" height="15" class='close-modal' xmlns="http://www.w3.org/2000/svg"><path d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z" fill="#000" fill-rule="evenodd" opacity=".4"/></svg>
     <h2>Back this project</h2>
     <p class='paragraph'>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
@@ -192,10 +195,10 @@
         
         <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount__group error">
+          <div class="amount__group">
             <div class='input__container'>
               <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
-              <a class="button" href="javascript:void(0);">Continue</a>
+              <a class="button continue-button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -214,13 +217,18 @@
         <p class='paragraph'>
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
+
+        <div class='stock__container flex'>
+          <span class='stock bamboo-stock'>101</span>
+          <span class='left'>left</span>
+        </div>
         
         <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount__group error">
+          <div class="amount__group">
             <div class='input__container'>
-              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="25">
-              <a class="button" href="javascript:void(0);">Continue</a>
+              <input class='pledge-input' type="text" name="pledge" id="option2" placeholder="25">
+              <a class="button continue-button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -240,13 +248,18 @@
         <p class='paragraph'>
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
+
+        <div class='stock__container flex'>
+          <span class='stock black-stock'>64</span>
+          <span class='left'>left</span>
+        </div>
         
         <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount__group error">
+          <div class="amount__group">
             <div class='input__container'>
-              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="75">
-              <a class="button" href="javascript:void(0);">Continue</a>
+              <input class='pledge-input' type="text" name="pledge" id="option3" placeholder="75">
+              <a class="button continue-button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
@@ -266,13 +279,18 @@
         <p class='paragraph'>
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.  Shipping is included.
         </p>
+
+        <div class='stock__container flex'>
+          <span class='stock mahogany-stock'>0</span>
+          <span class='left'>left</span>
+        </div>
         
         <div class="pledge slide-in">
           <p class='enter-your-pledge'>Enter your pledge</p>
-          <div class="amount__group error">
+          <div class="amount__group">
             <div class='input__container'>
-              <input class='pledge-input' type="text" name="pledge" id="option1" placeholder="0.00">
-              <a class="button" href="javascript:void(0);">Continue</a>
+              <input class='pledge-input' type="text" name="pledge" id="option4" placeholder="0.00">
+              <a class="button continue-button" href="javascript:void(0);">Continue</a>
             </div>
           </div>
         </div>
