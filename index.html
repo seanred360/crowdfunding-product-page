@@ -26,15 +26,15 @@
       </a>
 
       <div class="header__links fade-in hide-for-mobile">
-        <a class='link' href="/about.html" target='_blank'>About</a><a class='link' href="/discover.html" target='_blank'>Discover</a><a class='link' href="/get-started.html" target='_blank'>Get Started</a>
+        <a class='link' href="/placeholder-page.html" target='_blank'>About</a><a class='link' href="/placeholder-page.html" target='_blank'>Discover</a><a class='link' href="/placeholder-page.html" target='_blank'>Get Started</a>
       </div>
     </nav>
 
     <div class="container__menu hide-for-desktop">
       <div class="header__menu">
-        <a class='link' href="/about.html" target='_blank'>About</a>
-        <a class='link' href="/discover.html" target='_blank'>Discover</a>
-        <a class='link' href="/get-started.html" target='_blank'>Get Started</a>
+        <a class='link' href="/placeholder-page.html" target='_blank'>About</a>
+        <a class='link' href="/placeholder-page.html" target='_blank'>Discover</a>
+        <a class='link' href="/placeholder-page.html" target='_blank'>Get Started</a>
       </div>
     </div>
   </header>
@@ -43,13 +43,13 @@
 
   <main>
     <section class="product">
-      <img class='product-logo'src="images/logo-mastercraft.svg" alt="Mastercraft Logo">
+      <img class='product-logo' src="images/logo-mastercraft.svg" alt="Mastercraft Logo">
       <div>
         <h1 class='product-name'>Mastercraft Bamboo Monitor Riser</h1>
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
   
         <div class="product__buttons flex flex-ai-c flex-jc-sb">
-          <a href="javascript:void(0);" class="button select-button">Back this project</a>
+          <a href="javascript:void(0);" class="button select-button back-this-project">Back this project</a>
           <a href="javascript:void(0);" class="product__bookmark flex">
             <div>
               <svg class='bookmark-icon' width="56" height="56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#2F2F2F" cx="28" cy="28" r="28"/><path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/></g></svg>
@@ -63,17 +63,17 @@
   
     <section class="stats flex flex-ai-c flex-jc-c">
       <div class="stat__box">
-        <h2 class='flex'>$<span class="stat stats__money">89,914</span></h1>
+        <h2 class='flex'>$<span class="stat stats__money">89,914</span></h2>
         <p class="label stats__goal">of $100,000 backed</p>
       </div>
   
       <div class="stat__box backers__box">
-        <h2 class="stat stats__backers">5,007</h1>
+        <h2 class="stat stats__backers">5,007</h2>
         <p class="label stats__total">total backers</p>
       </div>
   
       <div class="stat__box">
-        <h2 class="stat stats__days">56</h1>
+        <h2 class="stat stats__days">56</h2>
         <p class="label stats__remaining">days left</p>
       </div>
   
@@ -138,26 +138,25 @@
         <a class="button select-button hide-for-desktop" id='#black-edition' href="javascript:void(0);">Select Reward</a>
       </div>
   
-        <div class="about__rewards out-of-stock">
-          <div class="about__header">
-            <h3>Mahogany Special Edition</h3>
-            <span class='pledge-label'>Pledge $200 or more</span>
-          </div>
-          
-          <p class='paragraph'>
-            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
-          </p>
-  
-          <div class='about__footer flex flex-ai-c flex-jc-sb'>
-            <div class='flex'>
-              <span class='stock mahogany-stock'>0</span>
-              <span class='left'>left</span>
-            </div>
-            <a class="button select-button hide-for-mobile" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
-          </div>
-  
-          <a class="button select-button hide-for-desktop" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
+      <div class="about__rewards out-of-stock">
+        <div class="about__header">
+          <h3>Mahogany Special Edition</h3>
+          <span class='pledge-label'>Pledge $200 or more</span>
         </div>
+        
+        <p class='paragraph'>
+          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
+        </p>
+
+        <div class='about__footer flex flex-ai-c flex-jc-sb'>
+          <div class='flex'>
+            <span class='stock mahogany-stock'>0</span>
+            <span class='left'>left</span>
+          </div>
+          <a class="button select-button hide-for-mobile" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
+        </div>
+
+        <a class="button select-button hide-for-desktop" id='#mahogany-edition' href="javascript:void(0);">Select Reward</a>
       </div>
     </section>
   </main>
@@ -180,13 +179,13 @@
     <form action="novalidate">
 
 <!--------------------SELECTION 1--------------------------------------------------------------------->
-      <div class="selection" id='noReward'>
-        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
+      <div class="selection">
+        <input class='radio-input' type="radio" name="selection" value="noReward" id='noReward'>
         <label for='noReward' class="selection__label flex flex-ai-c">
-          <div class="radioCircle"></div>
-          <div class='selection__header'>
-            <h3>Pledge with no reward</h3>
-          </div>
+          <span class="radioCircle"></span>
+          <span class='selection__header'>
+            <span class='selection-name' id='fuckit'>Pledge with no reward</span>
+          </span>
         </label>
   
         <p class='paragraph'>
@@ -205,13 +204,13 @@
       </div>
 <!--------------------SELECTION 2--------------------------------------------------------------------->
       <div class="selection" id='bamboo-edition'>
-        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="selection__label flex flex-ai-c">
-          <div class="radioCircle"></div>
-          <div class='selection__header'>
-            <h3>Bamboo Stand</h3>
+        <input class='radio-input' type="radio" name="selection" value="reward2" id='reward2'>
+        <label for='reward2' class="selection__label flex flex-ai-c">
+          <span class="radioCircle"></span>
+          <span class='selection__header'>
+            <span class='selection-name'>Bamboo Stand</span>
             <span class='pledge-label'>Pledge $25 or more</span>
-          </div>
+          </span>
         </label>
   
         <p class='paragraph'>
@@ -236,13 +235,13 @@
 
 <!--------------------SELECTION 3--------------------------------------------------------------------->
       <div class="selection" id='black-edition'>
-        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="selection__label flex flex-ai-c">
-          <div class="radioCircle"></div>
-          <div class='selection__header'>
-            <h3>Black Edition Stand</h3>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="reward3">
+        <label for='reward3' class="selection__label flex flex-ai-c">
+          <span class="radioCircle"></span>
+          <span class='selection__header'>
+            <span class='selection-name'>Black Edition Stand</span>
             <span class='pledge-label'>Pledge $75 or more</span>
-          </div>
+          </span>
         </label>
 
         <p class='paragraph'>
@@ -267,13 +266,13 @@
 
 <!--------------------SELECTION 4--------------------------------------------------------------------->
       <div class="selection out-of-stock" id='mahogany-edition'>
-        <input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="selection__label flex flex-ai-c">
-          <div class="radioCircle"></div>
-          <div class='selection__header'>
-            <h3>Mahogany Special Edition</h3>
+        <input class='radio-input' type="radio" name="selection" value="noReward" id="reward4">
+        <label for='reward4' class="selection__label flex flex-ai-c">
+          <span class="radioCircle"></span>
+          <span class='selection__header'>
+            <span class='selection-name'>Mahogany Special Edition</span>
             <span class='pledge-label'>Pledge $200 or more</span>
-          </div>
+          </span>
         </label>
 
         <p class='paragraph'>

@@ -874,10 +874,6 @@ section.modal__window .radio-input, .thank__you .radio-input {
   display: none;
 }
 
-section.modal__window .selection, .thank__you .selection {
-  scroll-margin-top: 1.5rem;
-}
-
 section.modal__window .selection .selection__label:hover, .thank__you .selection .selection__label:hover {
   color: #3cb4ac;
   cursor: pointer;
@@ -895,6 +891,29 @@ section.modal__window .selection .selection__header, .thank__you .selection .sel
   transition: color 0.25s ease;
 }
 
+section.modal__window .selection .selection__header .selection-name, .thank__you .selection .selection__header .selection-name {
+  display: inline-block;
+  color: black;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+}
+
+@media (min-width: 576px) {
+  section.modal__window .selection .selection__header .selection-name, .thank__you .selection .selection__header .selection-name {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 576px) {
+  section.modal__window .selection .selection__header .pledge-label, .thank__you .selection .selection__header .pledge-label {
+    padding-bottom: 0;
+    margin-left: 1.0625rem;
+  }
+}
+
 section.modal__window .selection.active, .thank__you .selection.active {
   border-color: #3cb4ac;
 }
@@ -909,9 +928,13 @@ section.modal__window .selection.active .radioCircle::after, .thank__you .select
           transform: scale(1);
 }
 
+section.modal__window .selection.active .stock__container, .thank__you .selection.active .stock__container {
+  margin-bottom: 2.25rem;
+}
+
 section.modal__window .radioCircle, .thank__you .radioCircle {
   position: relative;
-  display: block;
+  display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;

@@ -54,6 +54,7 @@ function fadeInOut(target) {
 
 // located in section.modal__window
 const toggleModalWindow = (close) => {
+    modalWindow.scrollTop = 0;
     document.body.classList.toggle('no-scroll')
     modalWindow.classList.toggle("active");
     if(close) {
@@ -89,11 +90,17 @@ const clearSelect = () => {
 
 // select a new .radio-input located in .modal__window .selection
 const selectNew = select => {
-    const parentSelection = select.parentElement; // .modal__window
-    parentSelection.classList.add("active"); // change the font color and border colors
-    select.checked = true; // check the .radio-input
-    slidePledges(); // show the .pledge
-    setTimeout(() => parentSelection.scrollIntoView({ behavior: "smooth"}), 550); // scroll .modal__window
+    if(select.classList.contains('selection')) { // if a .select-reward button called this function
+        select.checked = true; // check the .radio-input
+        select.classList.add("active"); // change the font color and border colors
+        setTimeout(() => select.scrollIntoView({ behavior: "smooth"}), 550); // scroll .modal__window
+        slidePledges(); // show the .pledge
+    } else { // if a .selection__label button called this function
+        const parentSelection = select.parentElement; // .modal__window
+        parentSelection.classList.add("active"); // change the font color and border colors
+        setTimeout(() => parentSelection.scrollIntoView({ behavior: "smooth"}), 550); // scroll .modal__window
+        slidePledges(); // show the .pledge
+    }
 };
 
 
@@ -176,9 +183,9 @@ bookmark.addEventListener("click", () => {
 // open the .modal__window and scroll to the selected reward tier
 selectButtons.forEach(b => {
     b.addEventListener("click", () => {
-        toggleModalWindow(true);
         clearSelect()
-        if (!b.parentElement.classList.contains("product__buttons")) { // if it's a 'select reward' button
+        toggleModalWindow(true);
+        if (!b.classList.contains("back-this-project")) { // if it's a 'select reward' button
             const inputID = b.id;
             const checkedOption = document.querySelector(inputID);
             checkedOption.checked = true;
