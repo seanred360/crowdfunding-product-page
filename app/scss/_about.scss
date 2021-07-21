@@ -92,6 +92,14 @@
             margin: 1.5rem 0;
         }
 
+        .about__footer {
+            display: grid;
+
+            @include respond-above(sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stock {
             padding-right: 0.5rem;
             padding-bottom: 1.5rem;
@@ -105,6 +113,7 @@
         }
 
         .left {
+            // a span that just says 'left' next to the remaining stock
             margin-top: auto;
             margin-bottom: auto;
             padding-bottom: 1.5rem;
@@ -118,9 +127,15 @@
         }
 
         .select-button {
+            grid-row-start: 2;
             padding: 0.9375rem 2rem;
             @include font-size(14);
             @include line-height(17);
+
+            @include respond-above(sm) {
+                grid-row-start: 1;
+                grid-column-start: 2;
+            }
         }
-    }
+    }   
 }

@@ -785,6 +785,18 @@ button:hover, .button:hover {
   margin: 1.5rem 0;
 }
 
+.about .about__rewards .about__footer, .about .selection .about__footer, .modal__window .about__rewards .about__footer, .modal__window .selection .about__footer, .thank__you .about__rewards .about__footer, .thank__you .selection .about__footer {
+  display: -ms-grid;
+  display: grid;
+}
+
+@media (min-width: 576px) {
+  .about .about__rewards .about__footer, .about .selection .about__footer, .modal__window .about__rewards .about__footer, .modal__window .selection .about__footer, .thank__you .about__rewards .about__footer, .thank__you .selection .about__footer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 .about .about__rewards .stock, .about .selection .stock, .modal__window .about__rewards .stock, .modal__window .selection .stock, .thank__you .about__rewards .stock, .thank__you .selection .stock {
   padding-right: 0.5rem;
   padding-bottom: 1.5rem;
@@ -815,9 +827,20 @@ button:hover, .button:hover {
 }
 
 .about .about__rewards .select-button, .about .selection .select-button, .modal__window .about__rewards .select-button, .modal__window .selection .select-button, .thank__you .about__rewards .select-button, .thank__you .selection .select-button {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
   padding: 0.9375rem 2rem;
   font-size: 0.875rem;
   line-height: 1.0625rem;
+}
+
+@media (min-width: 576px) {
+  .about .about__rewards .select-button, .about .selection .select-button, .modal__window .about__rewards .select-button, .modal__window .selection .select-button, .thank__you .about__rewards .select-button, .thank__you .selection .select-button {
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+  }
 }
 
 section.modal__window, .thank__you {
