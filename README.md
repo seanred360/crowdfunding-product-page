@@ -1,6 +1,6 @@
 # Frontend Mentor - Crowdfunding product page solution
 
-This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/vanilla-js-and-sass-W_mkkqD4J)
-- Live Site URL: [Add live site URL here](https://crowdfunding-product-page-tau-plum.vercel.app/)
+- Solution URL: [https://www.frontendmentor.io/solutions/vanilla-js-and-sass-W_mkkqD4J]
+- Live Site URL: [https://crowdfunding-product-page-tau-plum.vercel.app/]
 
 ## My process
 
@@ -54,19 +54,28 @@ Users should be able to:
 I made a custom radio button and used the <label> tag to make the click area bigger. Anything that I put in a label tag will be connected with the input tag.
 
 ```html
-<input class='radio-input' type="radio" name="selection" value="noReward" id="noReward">
-        <label for='noReward' class="selection__label flex flex-ai-c">
-          <div class="radioCircle"></div>
-          <div class='selection__header'>
-            <h3>Black Edition Stand</h3>
-            <span class='pledge-label'>Pledge $75 or more</span>
-          </div>
+<input
+  class="radio-input"
+  type="radio"
+  name="selection"
+  value="noReward"
+  id="noReward"
+/>
+<label for="noReward" class="selection__label flex flex-ai-c">
+  <div class="radioCircle"></div>
+  <div class="selection__header">
+    <h3>Black Edition Stand</h3>
+    <span class="pledge-label">Pledge $75 or more</span>
+  </div></label
+>
 ```
-I learned that adding some blank javascript to an anchor tag was better than adding #. When I add #, the anchor tag scrolls to the top of the page and creates an empty entry in the browser history. This makes it more difficult more the user to use the back button and the scrolling was disorienting. Adding the blank javascript in this way also retains keyboard and hover functionality which is useful for accessibility. 
+
+I learned that adding some blank javascript to an anchor tag was better than adding #. When I add #, the anchor tag scrolls to the top of the page and creates an empty entry in the browser history. This makes it more difficult more the user to use the back button and the scrolling was disorienting. Adding the blank javascript in this way also retains keyboard and hover functionality which is useful for accessibility.
 
 ```html
-<a href="javascript:void(0);" class="product__bookmark flex">
+<a href="javascript:void(0);" class="product__bookmark flex"></a>
 ```
+
 I found myself writing font-size and line-height on most elements. These mixins helped me to quickly convert pixels to rem units without having to calculate them all myself.
 
 ```css
@@ -78,15 +87,10 @@ I found myself writing font-size and line-height on most elements. These mixins 
   line-height: $sizeValue / 16 + rem;
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
 
 ### Continued development
 
-In the future I want to add Stripe payment functionality, the ability to change to different crowdfunding campaigns, and login features. The scope of this project was mainly to practice styling elements. 
+In the future I want to add Stripe payment functionality, the ability to change to different crowdfunding campaigns, and login features. The scope of this project was mainly to practice styling elements.
 
 ### Useful resources
 
@@ -94,8 +98,8 @@ In the future I want to add Stripe payment functionality, the ability to change 
 
 ## Author
 
-- Github - [Add your name here](https://github.com/seanred360)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/seanred360)
+- Github - [Sean Redmon](https://github.com/seanred360)
+- Frontend Mentor - [@reanred360](https://www.frontendmentor.io/profile/seanred360)
 
 ## Acknowledgments
 
