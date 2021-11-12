@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/dist/css/style.css'>
+  <script src="https://unpkg.com/tabbable/dist/index.umd.js"></script>
+  <script src="https://unpkg.com/focus-trap/dist/focus-trap.umd.js"></script>
   <title>Frontend Mentor | Crowdfunding product page</title>
 </head>
 <body>
@@ -111,7 +113,7 @@
   
         <div class='about__footer flex-ai-c flex-jc-sb'>
           <div class='flex flex-ai-c'>
-            <span class='stock bamboo-stock'>101</span>
+            <span class='stock bamboo-stock'>1</span>
             <span class='left'>left</span>
           </div>
           <a class="button select-button" id='#bamboo-edition' href="javascript:void(0);">Select Reward</a>
@@ -180,12 +182,12 @@
 
       <div class="selection">
         <input class='radio-input' type="radio" name="selection" value="noReward" id='noReward'>
-        <label for='noReward' class="selection__label flex flex-ai-c">
+        <a href="javascript:void(0);" class="selection__label flex flex-ai-c">
           <span class="radioCircle"></span>
           <span class='selection__header'>
             <span class='selection-name' id='fuckit'>Pledge with no reward</span>
           </span>
-        </label>
+        </a>
   
         <p class='paragraph'>
           Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.
@@ -201,23 +203,25 @@
           </div>
         </div>
       </div>
+
 <!--///////////////////////////////////////////// SELECTION 2 //////////////////////////////////////////////////////////////////////////////////-->
+
       <div class="selection" id='bamboo-edition'>
         <input class='radio-input' type="radio" name="selection" value="reward2" id='reward2'>
-        <label for='reward2' class="selection__label flex flex-ai-c">
+        <a href="javascript:void(0);" class="selection__label flex flex-ai-c">
           <span class="radioCircle"></span>
           <span class='selection__header'>
             <span class='selection-name'>Bamboo Stand</span>
             <span class='pledge-label'>Pledge $25 or more</span>
           </span>
-        </label>
+        </a>
   
         <p class='paragraph'>
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
         </p>
 
         <div class='stock__container flex'>
-          <span class='stock bamboo-stock'>101</span>
+          <span class='stock bamboo-stock'>1</span>
           <span class='left'>left</span>
         </div>
         
@@ -236,13 +240,13 @@
 
       <div class="selection" id='black-edition'>
         <input class='radio-input' type="radio" name="selection" value="noReward" id="reward3">
-        <label for='reward3' class="selection__label flex flex-ai-c">
+        <a href="javascript:void(0);" class="selection__label flex flex-ai-c">
           <span class="radioCircle"></span>
           <span class='selection__header'>
             <span class='selection-name'>Black Edition Stand</span>
             <span class='pledge-label'>Pledge $75 or more</span>
           </span>
-        </label>
+        </a>
 
         <p class='paragraph'>
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
@@ -268,13 +272,13 @@
 
       <div class="selection out-of-stock" id='mahogany-edition'>
         <input class='radio-input' type="radio" name="selection" value="noReward" id="reward4">
-        <label for='reward4' class="selection__label flex flex-ai-c">
+        <a href="javascript:void(0);" class="selection__label flex flex-ai-c">
           <span class="radioCircle"></span>
           <span class='selection__header'>
             <span class='selection-name'>Mahogany Special Edition</span>
             <span class='pledge-label'>Pledge $200 or more</span>
           </span>
-        </label>
+        </a>
 
         <p class='paragraph'>
           You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.  Shipping is included.
@@ -298,6 +302,6 @@
     </form>
   </section>
 
-  <script src="/app/index.js"></script>
+  <script type='module' src="/app/index.js"></script>
 </body>
 </html>

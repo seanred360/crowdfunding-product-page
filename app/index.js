@@ -21,6 +21,12 @@ const statProgressBar = document.querySelector('.fill') // displays amount of mo
 let pledgeAmount = 0 // the value that gets put on .stats__money
 
 
+const focusTrap = window.focusTrap.createFocusTrap(modalWindow, {
+    onActivate: () => modalWindow.classList.add('is-active'),
+    onDeactivate: () => modalWindow.classList.remove('is-active'),
+  });
+
+
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// ANIMATION TRIGGERS ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +62,7 @@ function fadeInOut(target) {
 const toggleModalWindow = (close) => {
     modalWindow.scrollTop = 0;
     document.body.classList.toggle('no-scroll')
+    focusTrap.activate
     modalWindow.classList.toggle("active");
     if(close) {
         fadeInOut(darkOverlay)
@@ -92,14 +99,16 @@ const clearSelect = () => {
 const selectNew = select => {
     if(select.classList.contains('selection')) { // if a .select-reward button called this function
         select.checked = true; // check the .radio-input
-        select.classList.add("active"); // change the font color and border colors
+        select.classList.add("active") // change the font color and border colors
+        select.querySelector('.selection__label').focus({preventScroll:true})
         setTimeout(() => select.scrollIntoView({ behavior: "smooth"}), 550); // scroll .modal__window
-        slidePledges(); // show the .pledge
+        slidePledges() // show the .pledge
     } else { // if a .selection__label button called this function
-        const parentSelection = select.parentElement; // .modal__window
-        parentSelection.classList.add("active"); // change the font color and border colors
+        const parentSelection = select.parentElement // .modal__window
+        parentSelection.classList.add("active") // change the font color and border colors
+        parentSelection.querySelector('.selection__label').focus({preventScroll:true})
         setTimeout(() => parentSelection.scrollIntoView({ behavior: "smooth"}), 550); // scroll .modal__window
-        slidePledges(); // show the .pledge
+        slidePledges() // show the .pledge
     }
 };
 
@@ -114,13 +123,29 @@ const updateStock = () => {
     // there are multiple things displaying the remaining stock, select the one from the .selection
     const stockClass = document.querySelector('.selection.active .stock__container .stock').classList[1]
     // also select the .stock located in .about__footer
-    stocksToUpdate = document.querySelectorAll(`.${stockClass}`)
+    const stocksToUpdate = document.querySelectorAll(`.${stockClass}`)
     // grab the current stock value and take away 1
     let newStockValue = parseInt(stocksToUpdate[0].innerHTML)
     newStockValue--
     // update the stock value in all locations
     stocksToUpdate.forEach(stock => {
         stock.innerHTML = newStockValue.toString()
+
+        // disable out of stock items
+        if(newStockValue == 0) {
+            if(stock.parentElement.classList.contains('stock__container')) {
+                stock.parentElement.parentElement.classList.add('out-of-stock') // the .modal__window stock
+            } else {
+                stock.parentElement.parentElement.parentElement.classList.add('out-of-stock') // the about section stock
+            }
+        }
+    })
+
+    // disable keyboard selection on out of stock items for accessibility users
+    selectionLabels.forEach(label => {
+        if(label.parentElement.classList.contains('out-of-stock')) {
+            label.removeAttribute('href')
+        }
     })
 };
 
@@ -161,7 +186,6 @@ const updateStats = () => {
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// CLICKABLE ELEMENTS ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-
 
 // mobile hamburger button
 btnHamburger.addEventListener('click', () => {
@@ -209,6 +233,11 @@ darkOverlay.addEventListener('click', () => {
 
 // select a reward tier on .modal__window
 selectionLabels.forEach(label => {
+    // do not allow keyboard users to select out of stock items
+    if(label.parentElement.classList.contains('out-of-stock')) {
+        label.removeAttribute("href")
+    }
+
     label.addEventListener("click", () => {
         clearSelect();
         selectNew(label);

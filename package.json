@@ -14,7 +14,7 @@
   "author": "Sean Redmon",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.0.2",
+    "focus-trap": "^6.6.0",
     "popper": "^1.0.1"
   }
 }
